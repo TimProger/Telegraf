@@ -1,7 +1,6 @@
 require('dotenv').config();
 const { Telegraf, Scenes, Markup, session } = require('telegraf');
 const sendScene = require("./scenes/send")
-const error = "Ошибка, такой команды не существует"
 const gameScene = require("./scenes/game")
 const bot = new Telegraf(process.env.BOT_TOKEN)
 
@@ -29,7 +28,6 @@ bot.hears('Список', (ctx) => {
 bot.hears('TimProg', (ctx) => {
     ctx.replyWithHTML(command_about)
 })
-
 bot.hears('Привет', (ctx) => {
     ctx.reply('Ну здраствуй')
 })
@@ -45,7 +43,6 @@ bot.start(async (ctx) => {
         ]).oneTime().resize())
     } catch (e) {
         console.log(e)
-        ctx.replyWithHTML(error)
     }
 })
 bot.action('commandList', (ctx) => {
@@ -78,7 +75,7 @@ bot.hears('Telegraf', (ctx) => {
 })
 bot.action('comicshub', (ctx) => {
     ctx.replyWithHTML(firstWork);
-}); // ВСТАВИТЬ ССЫЛКУ НА РЕПОЗИТОРИЙ С ТЕЛЕГРАФОМ
+});
 bot.action('telegraf', (ctx) => {
     ctx.replyWithHTML(secondWork)
 })

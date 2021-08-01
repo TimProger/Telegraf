@@ -1,8 +1,5 @@
 const { Markup, Composer, Scenes} = require('telegraf')
 
-let x = ctx.wizard.state.data.text
-let z = ctx.wizard.state.data.name
-
 const startStep = new Composer()
 startStep.on("text", async (ctx) => {
     try {
@@ -11,33 +8,29 @@ startStep.on("text", async (ctx) => {
         return ctx.wizard.next()        
     } catch (e) {
         console.log(e)
-        ctx.replyWithHTML(error)
     }
 })
 
 const titleStep = new Composer()
 titleStep.on("text", async (ctx) => {
     try {
-        z = ctx.message.text
+        ctx.wizard.state.data.name = ctx.message.text
         await ctx.replyWithHTML("Отлично, а теперь введите <b>текст</b>, который желаете отправить! ✏️")
         return ctx.wizard.next()        
     } catch (e) {
         console.log(e)
-        ctx.replyWithHTML(error)
     }
 })
 
 const lastStep = new Composer()
 lastStep.on("text", async (ctx) => {
     try {
-        x = ctx.message.text
-        const message = `<b>Имя</b>\n${z}\n\n<b>Сообщение</b>\n${x}`
+        ctx.wizard.state.data.text = ctx.message.text
+        const message = `<b>Имя</b>\n${ctx.wizard.state.data.name}\n\n<b>Сообщение</b>\n${ctx.wizard.state.data.text}`
         await ctx.replyWithHTML(`${message} \n\n <i>Письмо успешно отправлено! 📬</i>`)
         return ctx.scene.leave()        
     } catch (e) {
         console.log(e)
-        ctx.replyWithHTML(error)
-        
     }
 })
 
