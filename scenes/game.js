@@ -1,12 +1,12 @@
 const { Markup, Composer, Scenes} = require('telegraf')
 
+const q = ctx.wizard.state.data.ready
+const b = ctx.wizard.state.data.num
+
 const gameFirstStep = new Composer()
 gameFirstStep.on("text", async (ctx) => {
     try {
         ctx.wizard.state.data = {}
-        ctx.wizard.state.data.userName = ctx.message.from.username
-        ctx.wizard.state.data.first_name = ctx.message.from.first_name
-        ctx.wizard.state.data.last_name = ctx.message.from.last_name
         await ctx.replyWithHTML("Тебе нужно угадать число от 1 до 5 которое я загадал, попробуем? Если готов, пиши 'Да', иначе пиши 'Нет'", Markup.keyboard([
             ['Да', 'Нет']
         ]).oneTime().resize())
@@ -20,8 +20,8 @@ let num = getNum(5, 1)
 const gameSecondStep = new Composer()
 gameSecondStep.on("text", async (ctx) => {
     try {
-        ctx.wizard.state.data.ready = ctx.message.text
-        if(ctx.wizard.state.data.ready === "Да" || ctx.wizard.state.data.ready === "да"){
+        q = ctx.message.text
+        if(q === "Да" || q === "да"){
             num = getNum(5, 1)
             await ctx.replyWithHTML("Отлично, в таком случае скажи мне, какое <b>число</b> я загадал?", Markup.keyboard([
                 ['1', '2', '3', '4', '5']
@@ -38,8 +38,8 @@ gameSecondStep.on("text", async (ctx) => {
 const gameThirdStep = new Composer()
 gameThirdStep.on("text", async (ctx) => {
     try {
-        ctx.wizard.state.data.num = ctx.message.text
-        if(ctx.wizard.state.data.num === num.toString()){
+        b = ctx.message.text
+        if(b === num.toString()){
             await ctx.replyWithHTML("🔥 Это <b>правильный</b> ответ, поздравляю! 🔥", Markup.keyboard([
             ]).oneTime().resize())
             return ctx.scene.leave()
