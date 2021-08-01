@@ -82,18 +82,7 @@ bot.action('telegraf', (ctx) => {
 })
 const getNewNum = (max, min) => Math.floor(Math.random() * (max - min + 1)) + min
 bot.on('sticker', (ctx) => {
-    newNum = getNewNum(4, 1)
-    if(newNum = 0){
-        ctx.reply('🤩')
-    }else if(newNum = 1){
-        ctx.reply('😎')
-    }else if(newNum = 2){
-        ctx.reply('😋')
-    }else if(newNum = 3){
-        ctx.reply('🧐')
-    }else if(newNum = 4){
-        ctx.reply('🤣')
-    }
+    ctx.reply('🤩')
 })
 
 bot.launch()
