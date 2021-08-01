@@ -18,7 +18,7 @@ const gameSecondStep = new Composer()
 gameSecondStep.on("text", async (ctx) => {
     try {
         ctx.wizard.state.data.ready = ctx.message.text
-        if(ctx.wizard.state.data.ready === "Да" || ctx.wizard.state.data.ready === "да"){
+        if(ctx.wizard.state.data.ready.toLowerCase() === "да" || ctx.wizard.state.data.ready.toLowerCase() === "lf"){
             num = getNum(5, 1)
             await ctx.replyWithHTML("Отлично, в таком случае скажи мне, какое <b>число</b> я загадал?", Markup.keyboard([
                 ['1', '2', '3', '4', '5']
