@@ -25,7 +25,7 @@ gameSecondStep.on("text", async (ctx) => {
       ctx.wizard.state.data.ready.toLowerCase() === "да" ||
       ctx.wizard.state.data.ready.toLowerCase() === "lf"
     ) {
-      num = getNum(5, 1);
+      num = getNum(100, 1);
       await ctx.replyWithHTML(
         "Отлично, в таком случае скажи мне, какое <b>число</b> я загадал?"
       );
