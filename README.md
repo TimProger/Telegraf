@@ -10,3 +10,5 @@
 ---
 
 > ## ССЫЛКА НА БОТА --> [TimProg_bot](https://tele.click/@TimProg_bot "Нажми сюда ;)")
+
+[] Bob
