@@ -27,7 +27,8 @@ gameSecondStep.on("text", async (ctx) => {
     ) {
       num = getNum(100, 1);
       await ctx.replyWithHTML(
-        "Отлично, в таком случае скажи мне, какое <b>число</b> я загадал?"
+        "Отлично, в таком случае скажи мне, какое <b>число</b> я загадал?",
+        Markup.removeKeyboard(true)
       );
       await ctx.replyWithHTML("Введите число от 1 до 100.");
       return ctx.wizard.next();
