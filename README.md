@@ -11,7 +11,5 @@
 
 > ## ССЫЛКА НА БОТА --> [TimProg_bot](https://tele.click/@TimProg_bot "Нажми сюда ;)")
 
-- [ ] Bob
-- [x] Bob
-- [ ] Bob
-- [x] Bob
+- [x] Сделать бота
+- [ ] Исправить ошибки
