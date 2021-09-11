@@ -101,14 +101,16 @@ bot.hears("2", async (ctx) => {
     Markup.inlineKeyboard([
       [Markup.button.callback("Comics.hub", "comicshub")],
       [Markup.button.callback("Telegraf", "telegraf")],
+      [Markup.button.callback("NoteWrite", "notewrite")],
     ]),
-    Markup.keyboard([["Comics.hub", "Telegraf"]])
+    Markup.keyboard([["Comics.hub", "Telegraf", "NoteWrite"]])
   );
 });
 
 // Объявление переменных отвечающих за текст в "Моих работах"
 const firstWork = `Проект не был закончен до конца, однако над ним я не мало попыхтел. Это мой первый проект, ссылка на который находится ниже. \n\n🤖 https://github.com/TimProger/Comics.hub 🤖`;
 const secondWork = `Данный проект был закончен и вы можете наблюдать его перед своими глазами. Репозиторий с данным проектом находится по ссылке ниже \n\n🤖 https://github.com/TimProger/Telegraf 🤖`;
+const thirdWork = `Почти законченный проект для записи заметок, сохраняющихся в локальном хранилище браузера. \n\nПерейти на сайт можно по этой ссылке: https://notewrite.herokuapp.com/ \n\nА посмотреть репозиторий с кодом можно тут: 🤖 https://github.com/TimProger/notewrite 🤖`;
 
 // Ответ на цифру 3
 bot.hears("3", (ctx) => ctx.scene.enter("botWizard"));
@@ -117,17 +119,38 @@ bot.hears("3", (ctx) => ctx.scene.enter("botWizard"));
 bot.hears("4", (ctx) => ctx.scene.enter("timWizard"));
 
 // Команды отвечающие за ответ в "Моих работах"
+
 bot.hears("Comics.hub", (ctx) => {
-  ctx.replyWithHTML(firstWork);
-});
-bot.hears("Telegraf", (ctx) => {
-  ctx.replyWithHTML(secondWork);
+  ctx.replyWithHTML(firstWork, {
+    disable_web_page_preview: true,
+  });
 });
 bot.action("comicshub", (ctx) => {
-  ctx.replyWithHTML(firstWork);
+  ctx.replyWithHTML(firstWork, {
+    disable_web_page_preview: true,
+  });
+});
+
+bot.hears("Telegraf", (ctx) => {
+  ctx.replyWithHTML(secondWork, {
+    disable_web_page_preview: true,
+  });
 });
 bot.action("telegraf", (ctx) => {
-  ctx.replyWithHTML(secondWork);
+  ctx.replyWithHTML(secondWork, {
+    disable_web_page_preview: true,
+  });
+});
+
+bot.action("NoteWrite", (ctx) => {
+  ctx.replyWithHTML(thirdWork, {
+    disable_web_page_preview: true,
+  });
+});
+bot.action("notewrite", (ctx) => {
+  ctx.replyWithHTML(thirdWork, {
+    disable_web_page_preview: true,
+  });
 });
 
 // Чередующиеся стикеры в ответ на стикер
