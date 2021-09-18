@@ -96,7 +96,8 @@ bot.hears("2", async (ctx) => {
     `У меня есть небольшой список, который будет пополняться с каждым новым проектом над которым я работал.`
   );
   await ctx.replyWithHTML(
-    `Мои проекты: \n\n ⭐️ <i><b>Comics.hub</b></i> ⭐️\n\n ⭐️ <i><b>Telegraf</b></i> ⭐️
+    `Мои проекты: \n\n ⭐️ <i><b>Comics.hub</b></i> ⭐️\n\n ⭐️ <i><b>NoteWrite</b></i> ⭐️\n\n ⭐️ <i><b>Telegraf</b></i> ⭐️
+
         `,
     Markup.inlineKeyboard([
       [Markup.button.callback("Comics.hub", "comicshub")],
