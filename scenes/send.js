@@ -27,7 +27,7 @@ titleStep.on("text", async (ctx) => {
 });
 
 const lastStep = new Composer();
-lastStep.on("text", async (ctx) => {
+lastStep.on("contact", async (ctx) => {
   try {
     ctx.wizard.state.data.text = ctx.message.text;
     const message = `Имя:\n${ctx.wizard.state.data.name}\n\nСообщение:\n${ctx.wizard.state.data.text}`;
