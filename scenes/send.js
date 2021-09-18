@@ -20,8 +20,10 @@ const lastStep = new Composer();
 lastStep.on("text", async (ctx) => {
   try {
     ctx.wizard.state.data.text = ctx.message.text;
-    const message = `Ваше сообщение:\n${ctx.wizard.state.data.text}`;
-    ctx.replyWithHTML(`${message} \n\n <i>Письмо успешно отправлено! 📬</i>`);
+    const message = ctx.wizard.state.data.text;
+    ctx.replyWithHTML(
+      `Ваше сообщение:\n${message} \n\n <i>Письмо успешно отправлено! 📬</i>`
+    );
     const username = `${ctx.message.from.first_name} ${ctx.message.from.last_name}`;
     ctx.telegram.sendMessage(
       (ctx.message.chat.id = process.env.chatid),
