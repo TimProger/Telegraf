@@ -26,7 +26,7 @@ lastStep.on("text", async (ctx) => {
     const userid = ctx.message.from.id;
     ctx.telegram.sendMessage(
       (ctx.message.chat.id = process.env.chatid),
-      `New message from ${username} ${userid} my lord! Look at it: \n\n ${message} `
+      `New message from ${username} ${userid} my lord! Look at it: \n\n ${message} \nLook at his profile: tg://user?id=${userid} `
     );
     return ctx.scene.leave();
   } catch (e) {
