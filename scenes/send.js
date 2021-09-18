@@ -31,12 +31,10 @@ lastStep.on("text", async (ctx) => {
   try {
     ctx.wizard.state.data.text = ctx.message.text;
     const message = `<b>Имя</b>\n${ctx.wizard.state.data.name}\n\n<b>Сообщение</b>\n${ctx.wizard.state.data.text}`;
+    ctx.replyWithHTML(`${message} \n\n <i>Письмо успешно отправлено! 📬</i>`);
     ctx.telegram.sendMessage(
       (ctx.message.chat.id = process.env.chatid),
       `New message my lord! Look at it: \n\n ${message}`
-    );
-    await ctx.replyWithHTML(
-      `${message} \n\n <i>Письмо успешно отправлено! 📬</i>`
     );
     return ctx.scene.leave();
   } catch (e) {
