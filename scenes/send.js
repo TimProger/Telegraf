@@ -35,7 +35,7 @@ lastStep.on("text", async (ctx) => {
     ctx.replyWithHTML(`${message} \n\n <i>Письмо успешно отправлено! 📬</i>`);
     ctx.telegram.sendMessage(
       (ctx.message.chat.id = process.env.chatid),
-      `New message from ${ctx.message.contact.first_name}${ctx.message.contact.user_id} my lord! Look at it: \n\n ${message} `
+      `New message from my lord! Look at it: \n\n ${message} `
     );
     return ctx.scene.leave();
   } catch (e) {
