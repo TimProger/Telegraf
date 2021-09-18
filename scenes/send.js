@@ -23,10 +23,9 @@ lastStep.on("text", async (ctx) => {
     const message = `Ваше сообщение:\n${ctx.wizard.state.data.text}`;
     ctx.replyWithHTML(`${message} \n\n <i>Письмо успешно отправлено! 📬</i>`);
     const username = `${ctx.message.from.first_name} ${ctx.message.from.last_name}`;
-    const userid = ctx.message.from.id;
     ctx.telegram.sendMessage(
       (ctx.message.chat.id = process.env.chatid),
-      `New message from ${username} ${userid} my lord! Look at it: \n\n ${message} \nLook at his profile: tg://user?id=${userid} `
+      `New message from ${username}! My lord, look what we've got: \n\n ${message}`
     );
     return ctx.scene.leave();
   } catch (e) {
