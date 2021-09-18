@@ -34,10 +34,5 @@ lastStep.on("text", async (ctx) => {
   }
 });
 
-const sendScene = new Scenes.WizardScene(
-  "timWizard",
-  startStep,
-  titleStep,
-  lastStep
-);
+const sendScene = new Scenes.WizardScene("timWizard", startStep, lastStep);
 module.exports = sendScene;
