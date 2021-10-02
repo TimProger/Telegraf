@@ -25,14 +25,16 @@ bot.hears("Мои работы", async (ctx) => {
     `У меня есть небольшой список, который будет пополняться с каждым новым проектом над которым я работал.`
   );
   await ctx.replyWithHTML(
-    `Мои проекты: \n\n ⭐️ <i><b>Comics.hub</b></i> ⭐️\n\n ⭐️ <i><b>Telegraf</b></i> ⭐️ \n\n ⭐️ <i><b>NoteWrite</b></i> ⭐️
+    `Мои проекты: \n\n ⭐️ <i><b>Comics.hub</b></i> ⭐️\n\n ⭐️ <i><b>Telegraf</b></i> ⭐️ \n\n ⭐️ <i><b>NoteWrite</b></i> ⭐️ \n\n ⭐️ <i><b>TailwindVK</b></i> ⭐️
 
         `,
     Markup.inlineKeyboard([
       [Markup.button.callback("Comics.hub", "comicshub")],
       [Markup.button.callback("Telegraf", "telegraf")],
+      [Markup.button.callback("NoteWrite", "notewrite")],
+      [Markup.button.callback("TailwindVK", "tailwindvk")],
     ]),
-    Markup.keyboard([["Comics.hub", "Telegraf"]])
+    Markup.keyboard([["Comics.hub", "Telegraf", "NoteWrite", "TailwindVK"]])
   );
 });
 
@@ -97,15 +99,16 @@ bot.hears("2", async (ctx) => {
     `У меня есть небольшой список, который будет пополняться с каждым новым проектом над которым я работал.`
   );
   await ctx.replyWithHTML(
-    `Мои проекты: \n\n ⭐️ <i><b>Comics.hub</b></i> ⭐️\n\n ⭐️ <i><b>Telegraf</b></i> ⭐️ \n\n ⭐️ <i><b>NoteWrite</b></i> ⭐️
+    `Мои проекты: \n\n ⭐️ <i><b>Comics.hub</b></i> ⭐️\n\n ⭐️ <i><b>Telegraf</b></i> ⭐️ \n\n ⭐️ <i><b>NoteWrite</b></i> ⭐️ \n\n ⭐️ <i><b>TailwindVK</b></i> ⭐️
 
         `,
     Markup.inlineKeyboard([
       [Markup.button.callback("Comics.hub", "comicshub")],
       [Markup.button.callback("Telegraf", "telegraf")],
       [Markup.button.callback("NoteWrite", "notewrite")],
+      [Markup.button.callback("TailwindVK", "tailwindvk")],
     ]),
-    Markup.keyboard([["Comics.hub", "Telegraf", "NoteWrite"]])
+    Markup.keyboard([["Comics.hub", "Telegraf", "NoteWrite", "TailwindVK"]])
   );
 });
 
@@ -113,6 +116,7 @@ bot.hears("2", async (ctx) => {
 const firstWork = `Проект не был закончен до конца, однако над ним я не мало попыхтел. Это мой первый проект, ссылка на который находится ниже. \n\n🤖 https://github.com/TimProger/Comics.hub 🤖`;
 const secondWork = `Данный проект был закончен и вы можете наблюдать его перед своими глазами. Репозиторий с данным проектом находится по ссылке ниже \n\n🤖 https://github.com/TimProger/Telegraf 🤖`;
 const thirdWork = `Почти законченный проект для записи заметок, сохраняющихся в локальном хранилище браузера. \n\nПерейти на сайт можно по этой ссылке: https://notewrite.herokuapp.com/ \n\nА посмотреть репозиторий с кодом можно тут: \n🤖 https://github.com/TimProger/notewrite 🤖`;
+const forthWork = `На днях посмотрел курс по фреймворку Tailwind CSS и решил наконец-то понять, как же работает ВКонтакте. Спустя несколько дней я наконец закончил делать свою страницу. \n\nПерейти на сайт можно по этой ссылке: https:https://timproger.github.io/Tailwind_VK/# \n\nА посмотреть репозиторий с кодом можно тут: \n🤖 https://github.com/TimProger/Tailwind_VK 🤖`;
 
 // Ответ на цифру 3
 bot.hears("3", (ctx) => ctx.scene.enter("botWizard"));
@@ -151,6 +155,16 @@ bot.action("NoteWrite", (ctx) => {
 });
 bot.action("notewrite", (ctx) => {
   ctx.replyWithHTML(thirdWork, {
+    disable_web_page_preview: true,
+  });
+});
+bot.action("TailwindVK", (ctx) => {
+  ctx.replyWithHTML(forthWork, {
+    disable_web_page_preview: true,
+  });
+});
+bot.action("tailwindvk", (ctx) => {
+  ctx.replyWithHTML(forthWork, {
     disable_web_page_preview: true,
   });
 });
