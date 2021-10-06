@@ -128,15 +128,16 @@ bot.hears("4", (ctx) => ctx.scene.enter("timWizard"));
 
 bot.on('poll', (ctx) => console.log('Poll update', ctx.poll))
 
-setInterval(() => {
-bot.reply('poll', (ctx) =>
-  ctx.replyWithPoll(
-    'Your favorite math constant',
-    ['x', 'e', 'π', 'φ', 'γ'],
-    { is_anonymous: false }
-  )
+bot.poll('poll', (ctx) =>
+  setInterval(() => {
+    ctx.replyWithPoll(
+      'Your favorite math constant',
+      ['x', 'e', 'π', 'φ', 'γ'],
+      { is_anonymous: false }
+    )
+  }, 10000)
 )
-}, 10000)
+
 
 
 
