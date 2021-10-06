@@ -126,6 +126,16 @@ bot.hears("4", (ctx) => ctx.scene.enter("timWizard"));
 
 // Команды отвечающие за ответ в "Моих работах"
 
+bot.on('poll', (ctx) => console.log('Poll update', ctx.poll))
+
+bot.command('poll', (ctx) =>
+  ctx.replyWithPoll(
+    'Your favorite math constant',
+    ['x', 'e', 'π', 'φ', 'γ'],
+    { is_anonymous: false }
+  )
+)
+
 bot.hears("Comics.hub", (ctx) => {
   ctx.replyWithHTML(firstWork, {
     disable_web_page_preview: true,
