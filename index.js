@@ -128,7 +128,7 @@ bot.hears("4", (ctx) => ctx.scene.enter("timWizard"));
 
 bot.on('poll', (ctx) => console.log('Poll update', ctx.poll))
 
-bot.poll('poll', (ctx) =>
+bot.command('poll', (ctx) =>
   setInterval(() => {
     ctx.replyWithPoll(
       'Your favorite math constant',
