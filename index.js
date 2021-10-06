@@ -131,11 +131,11 @@ bot.on('poll', (ctx) => console.log('Poll update', ctx.poll))
 bot.command('poll', (ctx) =>
   setInterval(() => {
     ctx.replyWithPoll(
-      'Your favorite math constant',
-      ['x', 'e', 'π', 'φ', 'γ'],
+      'Опоздун тест',
+      ["Немного опоздаю", "Сильно опоздаю"],
       { is_anonymous: false }
     )
-  }, 10000)
+  }, 100000)
 )
 
 
