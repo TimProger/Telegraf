@@ -126,17 +126,19 @@ bot.hears("4", (ctx) => ctx.scene.enter("timWizard"));
 
 // Команды отвечающие за ответ в "Моих работах"
 
-bot.on('poll', (ctx) => console.log('Poll update', ctx.poll))
 
-bot.command('poll', (ctx) =>
-  setInterval(() => {
-    ctx.replyWithPoll(
-      'Опоздун тест',
-      ["Немного опоздаю", "Сильно опоздаю"],
-      { is_anonymous: false }
-    )
-  }, 100000)
-)
+
+// bot.on('poll', (ctx) => console.log('Poll update', ctx.poll))
+
+// bot.command('poll', (ctx) =>
+//   setInterval(() => {
+//     ctx.replyWithPoll(
+//       'Опоздун тест',
+//       ["Немного опоздаю", "Сильно опоздаю"],
+//       { is_anonymous: false }
+//     )
+//   }, 100000)
+// )
 
 
 
