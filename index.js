@@ -16,7 +16,6 @@ const stage = new Scenes.Stage([sendScene, gameScene]);
 bot.use(session());
 bot.use(stage.middleware());
 
-// Незаконченная идея с отправкой сообщения ботом в другую беседу
 bot.hears("Письмо разработчику", (ctx) => ctx.scene.enter("timWizard"));
 
 // Команда отвечающая за показ моих работ ботом
